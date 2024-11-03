@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Christa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      /* background: url('party-background.jpg') center/cover no-repeat; Replace with a URL or path to a party-themed background image */
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      color: #004080;
+    }
+    h1 {
+      font-size: 3em;
+      color: #004080;
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .cake-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      position: relative;
+    }
+    /* Cake layers with different colors */
+    .cake-layer {
+      width: 220px;
+      height: 40px;
+      border-radius: 50% / 20%;
+      position: relative;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      margin-top: -10px; /* Slight overlap for a layered look */
+    }
+    .layer1 { background: #ff9999; }
+    .layer2 { background: #ffcc66; }
+    .layer3 { background: #99ccff; }
+    /* Bottom "plate" of the cake */
+    .cake-layer::before {
+      content: "";
+      width: 250px;
+      height: 20px;
+      background: #ffe6e6;
+      border-radius: 50% / 20%;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+    /* Candle styling */
+    .candle {
+      width: 30px;
+      height: 80px;
+      background: #3366ff;
+      border-radius: 10px;
+      position: absolute;
+      top: -90px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    /* Candle flame */
+    .flame {
+      width: 15px;
+      height: 20px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flicker 1s infinite alternate;
+    }
+    @keyframes flicker {
+      0% { opacity: 1; }
+      100% { opacity: 0.8; transform: scale(1.1); }
+    }
+    /* Wish button styling */
+    .wish-button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1.5em;
+      color: white;
+      background-color: #004080;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .wish-button:hover {
+      background-color: #003366;
+    }
+    /* Footer with balloons */
+    .footer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      padding: 20px 0;
+      position: fixed;
+      bottom: 0;
+    }
+    .balloon {
+      width: 40px;
+      height: 60px;
+      background: radial-gradient(circle, #ff6666 20%, #ff3333 90%);
+      border-radius: 50%;
+      position: relative;
+      margin: 0 10px;
+      animation: float 2s ease-in-out infinite;
+    }
+    .balloon::before {
+      content: "";
+      width: 2px;
+      height: 15px;
+      background: #333;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .balloon:nth-child(2) { background: radial-gradient(circle, #66ccff 20%, #3399ff 90%); animation-delay: 1s; }
+    .balloon:nth-child(3) { background: radial-gradient(circle, #ffcc66 20%, #ff9933 90%); animation-delay: 0.5s; }
+    .balloon:nth-child(4) { background: radial-gradient(circle, #cc99ff 20%, #9966ff 90%); animation-delay: 1.5s; }
+    /* Balloon floating animation */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    /* Blinking text styles */
+    .description {
+      font-size: 1.5em;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .word {
+      display: inline-block;
+      opacity: 0;
+      animation: blink 12s infinite;
+    }
+    /* Animation for each word */
+    @keyframes blink {
+      0%, 100% { opacity: 0; }
+      5%, 15% { opacity: 1; }
+    }
+    .word:nth-child(1) { color: #ff9999; animation-delay: 0s; }
+    .word:nth-child(2) { color: #66ccff; animation-delay: 3s; }
+    .word:nth-child(3) { color: #ffcc66; animation-delay: 6s; }
+    .word:nth-child(4) { color: #cc99ff; animation-delay: 9s; }
+  </style>
+</head>
+<body>
+
+  <!-- Greeting -->
+  <h1>Happy Birthday Bestieee!</h1>
+
+  <!-- Description with blinking effect -->
+  <div class="description">
+    <span class="word">You're definitely the sweetest,</span>
+    <span class="word">most beautiful,</span>
+    <span class="word">caring,</span>
+    <span class="word">intelligent,</span>
+    <span class="word">most amazing person I know Christa!</span>
+  </div>
+  <p>    </p>
+  <p>    </p>
+
+  <!-- Cake with Candle in the Center -->
+  <div class="cake-section">
+    <div class="cake-layer layer1"></div>
+    <div class="cake-layer layer2"></div>
+    <div class="cake-layer layer3">
+      <!-- Candle on top of the cake -->
+      <div class="candle">
+        <div class="flame" id="flame"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Make a Wish Button -->
+  <button class="wish-button" id="wishButton">Make a Wish 🎂</button>
+
+  <!-- Footer with Floating Balloons -->
+  <div class="footer">
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+  </div>
+
+  <script>
+    // Script to "blow out" the candle
+    document.getElementById('wishButton').addEventListener('click', function() {
+      const flame = document.getElementById('flame');
+      flame.style.display = 'none';
+      document.getElementById('wishButton').textContent = "Wish Made! 🎉";
+    });
+  </script>
+
+</body>
+</html>
